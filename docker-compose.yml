@@ -14,3 +14,10 @@ services:
       - CUSTOM_UID=1000
       - CUSTOM_GID=1000
 
+  postgres96:
+    image: postgres:9.6.6
+    container_name: postgres96
+    ports:
+      - 5432:5432
+    restart: always
+
