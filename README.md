@@ -11,3 +11,4 @@ it exports netcdf raster layers.
     1. ```sudo chown -R 1000 extensions_dir``` 
 
 After that geoserver will run on port 8080 locally.
+Default created account: userName=`root`, password=`geoserver`
