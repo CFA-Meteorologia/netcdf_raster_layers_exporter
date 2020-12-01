@@ -1,0 +1,16 @@
+﻿version: '2'
+
+services:
+  geoserver:
+    image: oscarfonts/geoserver:2.18.1
+    container_name: geoserver
+    volumes:
+      - ./data_dir/:/var/local/geoserver
+      - ./conf_dir/:/usr/local/tomcat/conf/Catalina/localhost
+      - ./extensions_dir/:/var/local/geoserver-exts/
+    ports:
+      - "8080:8080"
+    environment:
+      - CUSTOM_UID=1000
+      - CUSTOM_GID=1000
+
