@@ -2,7 +2,7 @@
 
 services:
   geoserver:
-    image: oscarfonts/geoserver:2.18.1
+    image: oscarfonts/geoserver:2.16.0
     container_name: geoserver
     volumes:
       - ./data_dir/:/var/local/geoserver
@@ -15,7 +15,7 @@ services:
       - CUSTOM_GID=1000
 
   postgres96:
-    image: postgres:9.6.6
+    image: postgis/postgis:9.6-2.5-alpine
     container_name: postgres96
     ports:
       - 6000:5432
