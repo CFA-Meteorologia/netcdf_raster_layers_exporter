@@ -1,2 +1,4 @@
 .idea
-data_dir
+geoserver/data_dir
+rabbitmq/data
+

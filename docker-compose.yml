@@ -5,9 +5,9 @@ services:
     image: oscarfonts/geoserver:2.18.1
     container_name: geoserver
     volumes:
-      - ./data_dir/:/var/local/geoserver
-      - ./conf_dir/:/usr/local/tomcat/conf/Catalina/localhost
-      - ./extensions_dir/:/var/local/geoserver-exts/
+      - ./geoserver/data_dir/:/var/local/geoserver
+      - ./geoserver/conf_dir/:/usr/local/tomcat/conf/Catalina/localhost
+      - ./geoserver/extensions_dir/:/var/local/geoserver-exts/
     ports:
       - "8080:8080"
     environment:
@@ -22,6 +22,23 @@ services:
     restart: always
     volumes:
       - postgres-data:/var/lib/postgresql/data
+
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    hostname: my-rabbit
+    volumes:
+      - ./rabbitmq/etc/definitions.json:/etc/rabbitmq/definitions.json
+      - ./rabbitmq/data:/var/lib/rabbitmq/mnesia/rabbit@my-rabbit
+      - ./rabbitmq/logs:/var/log/rabbitmq/log
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=rabbit-mq-cookie
+      - RABBITMQ_DEFAULT_USER=rabbit-mq
+      - RABBITMQ_DEFAULT_PASS=rabbit-mq
+
 volumes:
   postgres-data:
 
