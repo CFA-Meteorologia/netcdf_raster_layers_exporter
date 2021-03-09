@@ -21,7 +21,7 @@ services:
       - 6000:5432
     restart: always
     environment:
-      POSTGRES_PASSWORD: examppostgresle
+      POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
     volumes:
       - postgres-data:/var/lib/postgresql/data
