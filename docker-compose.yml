@@ -20,6 +20,9 @@ services:
     ports:
       - 6000:5432
     restart: always
+    environment:
+      POSTGRES_PASSWORD: examppostgresle
+      POSTGRES_USER: postgres
     volumes:
       - postgres-data:/var/lib/postgresql/data
 
@@ -31,6 +34,7 @@ services:
       - ./rabbitmq/etc/definitions.json:/etc/rabbitmq/definitions.json
       - ./rabbitmq/data:/var/lib/rabbitmq/mnesia/rabbit@my-rabbit
       - ./rabbitmq/logs:/var/log/rabbitmq/log
+    restart: always
     ports:
       - 5672:5672
       - 15672:15672
