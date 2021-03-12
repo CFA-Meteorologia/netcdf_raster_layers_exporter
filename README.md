@@ -4,7 +4,7 @@ it exports netcdf raster layers.
 
 #INSTALLATION
 - Install docker, docker-compose
-- Run ```docker-compose up -y geoserver```
+- Run ```docker-compose up -d```
 - Run
     1. ```sudo chown -R 1000 conf_dir``` 
     1. ```sudo chown -R 1000 data_dir``` 
